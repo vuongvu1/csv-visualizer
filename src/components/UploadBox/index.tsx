@@ -1,31 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import SC from "./styles";
 import { Spinner, Check as CheckIcon } from "assets/icons";
 
 interface Props {
+  loading?: boolean;
   file?: File;
   onChange?: (file: File) => void;
 }
 
-const UploadBox: React.FC<Props> = ({ file, onChange }) => {
-  const [fileData, setFileData] = useState<File | undefined>(file);
-  const [loading, setLoading] = useState<boolean>(false);
+const UploadBox: React.FC<Props> = ({ onChange, loading }) => {
+  const [fileData, setFileData] = useState<File | null>(null);
 
   const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const csvFile = event.target.files?.[0];
     if (csvFile) {
-      setLoading(true);
       setFileData(csvFile);
       onChange?.(csvFile);
     }
   };
-
-  useEffect(() => {
-    if (file) {
-      setFileData(file);
-      setLoading(false);
-    }
-  }, [file]);
 
   return (
     <SC.Container>
