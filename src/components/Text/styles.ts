@@ -1,5 +1,10 @@
 import styled, { css } from "styled-components";
-import { primaryColor, secondaryColor, neutralColor } from "configs/colors";
+import {
+  primaryColor,
+  secondaryColor,
+  neutralColor,
+  blackColor,
+} from "configs/colors";
 import { FontSize } from "configs/styles";
 import { TextType } from "./index";
 
@@ -27,7 +32,7 @@ export default {
 
       if (type === TextType.BODY) {
         return css`
-          color: ${neutralColor};
+          color: ${blackColor};
           font-weight: normal;
           font-size: ${FontSize.medium};
         `;

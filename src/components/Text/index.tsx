@@ -9,7 +9,6 @@ export enum TextType {
 
 interface Props {
   type?: TextType;
-  children?: string;
 }
 
 const Text: React.FC<Props> = ({ type, children }) => {
