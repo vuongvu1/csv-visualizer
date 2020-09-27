@@ -8,7 +8,7 @@ export default {
     display: flex;
     flex-direction: column;
     margin: ${Spacing.large};
-    background-color: ${whiteColor};
+    padding: ${Spacing.normal};
     background-color: ${whiteColor};
     box-shadow: 0px 1px 0px ${boxShadowColor};
     border-radius: 12px;

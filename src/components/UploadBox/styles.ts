@@ -16,6 +16,7 @@ export default {
     flex-direction: column;
     margin: ${Spacing.large};
     margin-right: 0;
+    padding: ${Spacing.normal};
     background-color: ${whiteColor};
     box-shadow: 0px 1px 0px ${boxShadowColor};
     border-radius: 12px;
@@ -34,7 +35,6 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: ${Spacing.normal};
     border-radius: 12px;
     border: 1px dashed ${secondaryColor};
     color: ${neutralDarkColor};
@@ -47,13 +47,13 @@ export default {
     }
   `,
   UploadedFile: styled.div`
-    margin: ${Spacing.normal} ${Spacing.normal} 0;
     display: flex;
     justify-content: space-between;
   `,
   IconAndLabel: styled.div`
     display: flex;
     align-items: center;
+    margin-bottom: ${Spacing.normal};
   `,
   FileIcon: styled(DocumentIcon)`
     margin-right: ${Spacing.small};
