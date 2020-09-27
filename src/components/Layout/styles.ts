@@ -19,15 +19,15 @@ export default {
     align-items: center;
   `,
   BodyContainer: styled.div`
+    flex: 1;
     width: 100%;
     background-color: ${neutralColor};
-    height: calc(100vh - ${HEADER_HEIGHT});
     display: flex;
     justify-content: center;
   `,
   Body: styled.div`
-    max-width: 930px;
     width: 100%;
+    max-width: 930px;
     display: flex;
 
     @media (max-width: ${ScreenWidth.medium}) {
