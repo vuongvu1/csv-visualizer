@@ -1,8 +1,13 @@
 import React from "react";
-import Layout from "components/Layout";
+import { Layout, UploadBox, DataTable } from "components";
 
 const Home = () => {
-  return <Layout title="CSV Uploader">This is home page</Layout>;
+  return (
+    <Layout title="CSV Uploader">
+      <UploadBox />
+      <DataTable />
+    </Layout>
+  );
 };
 
 export default Home;

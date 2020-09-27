@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { neutralColor } from "configs/colors";
+import { ScreenWidth } from "configs/styles";
 
 const HEADER_HEIGHT = "100px";
 
@@ -27,5 +28,10 @@ export default {
   Body: styled.div`
     max-width: 930px;
     width: 100%;
+    display: flex;
+
+    @media (max-width: ${ScreenWidth.medium}) {
+      flex-direction: column;
+    }
   `,
 };

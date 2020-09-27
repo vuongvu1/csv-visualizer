@@ -1,13 +1,13 @@
 export const ScreenWidth = {
-  large: "1024px",
-  medium: "768px",
   small: "480px",
+  medium: "768px",
+  large: "1024px",
 };
 
 export const Spacing = {
-  xSmall: "6px",
-  small: "12px",
-  normal: "18px",
+  small: "6px",
+  normal: "12px",
+  large: "18px",
 };
 
 export const FontSize = {
