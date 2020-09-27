@@ -9,3 +9,9 @@ export const Spacing = {
   small: "12px",
   normal: "18px",
 };
+
+export const FontSize = {
+  small: "14px",
+  medium: "16px",
+  large: "32px",
+};
