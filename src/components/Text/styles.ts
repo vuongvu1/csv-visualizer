@@ -32,6 +32,7 @@ export default {
 
       if (type === TextType.BODY) {
         return css`
+          margin: 0;
           color: ${blackColor};
           font-weight: normal;
           font-size: ${FontSize.medium};

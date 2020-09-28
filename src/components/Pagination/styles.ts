@@ -4,19 +4,22 @@ import { Spacing } from "configs/styles";
 
 interface ButtonProps {
   isFunctionKey?: boolean;
+  isPageSizeKey?: boolean;
   disabled?: boolean;
   active?: boolean;
 }
 
 export default {
   Container: styled.div`
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   `,
   Button: styled.button<ButtonProps>`
     padding: ${Spacing.small};
     border: 1px solid ${neutralColor};
     background-color: ${whiteColor};
-    width: 34px;
+    min-width: 34px;
     height: 34px;
 
     ${(p) =>
@@ -31,6 +34,13 @@ export default {
       p.isFunctionKey &&
       css`
         width: 46px;
+      `}
+
+    ${(p) =>
+      p.isPageSizeKey &&
+      css`
+        margin-left: ${Spacing.small};
+        height: 28px;
       `}
 
     ${(p) =>

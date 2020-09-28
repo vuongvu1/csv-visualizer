@@ -4,7 +4,7 @@ import SC from "./styles";
 export enum TextType {
   H1 = "h1",
   H2 = "h2",
-  BODY = "body",
+  BODY = "p",
 }
 
 interface Props {
