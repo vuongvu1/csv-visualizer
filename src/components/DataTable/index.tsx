@@ -1,33 +1,12 @@
 import React, { useState, useEffect } from "react";
-import SC from "./styles";
 import Pagination, { PageSize } from "../Pagination";
 import Text, { TextType } from "../Text";
+import SC from "./styles";
+import Table from "./Table";
 
 interface Props {
   data: Array<string[]>;
 }
-
-// have to use indexes as keys because rows don't have ids or nay unique values
-const renderTable = (headerRow: string[], showingRows: Array<string[]>) => (
-  <SC.Table>
-    <thead>
-      <SC.Tr>
-        {headerRow.map((header, index) => (
-          <SC.Th key={index}>{header}</SC.Th>
-        ))}
-      </SC.Tr>
-    </thead>
-    <tbody>
-      {showingRows.map((row, index) => (
-        <SC.Tr key={index}>
-          {row.map((cell, ind) => (
-            <SC.Td key={ind}>{cell}</SC.Td>
-          ))}
-        </SC.Tr>
-      ))}
-    </tbody>
-  </SC.Table>
-);
 
 const getTotalPages = (data: Array<string[]>, pageSize: number) => {
   const allDataRows = data.length - 1; // minus header row
@@ -67,7 +46,7 @@ const DataTable: React.FC<Props> = ({ data }) => {
       )}
       {shouldShowTable && (
         <>
-          {renderTable(headerRow, showingRows)}
+          <Table headerRow={headerRow} showingRows={showingRows} />
           <Pagination
             total={totalPages}
             current={currentPage}
