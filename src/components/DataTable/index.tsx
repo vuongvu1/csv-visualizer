@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Pagination, { PageSize } from "../Pagination";
 import Text, { TextType } from "../Text";
 import SearchBar from "../SearchBar";
+import { isTextMatch } from "utils";
 import SC from "./styles";
 import Table from "./Table";
 
@@ -9,8 +10,8 @@ interface Props {
   data: Array<string[]>;
 }
 
-const getTotalPages = (data: Array<string[]>, pageSize: number) => {
-  const allDataRows = data.length - 1; // minus header row
+const getTotalPages = (dataRows: Array<string[]>, pageSize: number) => {
+  const allDataRows = dataRows.length;
   const isLastPageFitPageSize = allDataRows % pageSize === 0;
   const totalPages = parseInt(`${allDataRows / pageSize}`, 10);
   return isLastPageFitPageSize ? totalPages : totalPages + 1;
@@ -22,27 +23,47 @@ const DataTable: React.FC<Props> = ({ data }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [headerRow, setHeaderRow] = useState<string[]>([]);
+  const [dataRows, setDataRows] = useState<Array<string[]>>([]);
   const [showingRows, setShowingRows] = useState<Array<string[]>>([]);
+  const shouldShowTable = data.length > 0;
 
   useEffect(() => {
     if (data.length > 0) {
       setHeaderRow(data[0]);
-      setCurrentPage(1);
-      setTotalPages(getTotalPages(data, pageSize));
+      setDataRows(data.slice(1, data.length));
     }
-  }, [data, pageSize]);
+  }, [data]);
 
   useEffect(() => {
-    if (data.length > 0) {
+    setCurrentPage(1);
+    setTotalPages(getTotalPages(dataRows, pageSize));
+  }, [dataRows, pageSize]);
+
+  useEffect(() => {
+    setLoading(true);
+    const showingIndex = (currentPage - 1) * pageSize;
+    setShowingRows(dataRows.slice(showingIndex, showingIndex + pageSize));
+
+    setTimeout(() => setLoading(false), 400); // Assume data is processing
+  }, [currentPage, dataRows, pageSize]);
+
+  const handleSearchTable = useCallback(
+    (keywords: string) => {
       setLoading(true);
-      const showingIndex = (currentPage - 1) * pageSize + 1; // plus 1 because of the header row
-      setShowingRows(data.slice(showingIndex, showingIndex + pageSize));
+      const originalDataRows = data.slice(1, data.length); // remove header row
 
-      setTimeout(() => setLoading(false), 400); // Assume data is processing
-    }
-  }, [currentPage, data, pageSize]);
+      if (keywords) {
+        setDataRows(
+          originalDataRows.filter((row) => isTextMatch(row[2], keywords)) // column 3 is description text
+        );
+      } else {
+        setDataRows(originalDataRows);
+      }
 
-  const shouldShowTable = data?.length > 0;
+      setLoading(false);
+    },
+    [data]
+  );
 
   return (
     <SC.Container>
@@ -51,7 +72,7 @@ const DataTable: React.FC<Props> = ({ data }) => {
       )}
       {shouldShowTable && (
         <>
-          <SearchBar onSearch={console.log} />
+          <SearchBar onSearch={handleSearchTable} />
           <Table
             headerRow={headerRow}
             showingRows={showingRows}

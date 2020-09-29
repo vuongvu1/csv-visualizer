@@ -41,6 +41,7 @@ export default {
     cursor: pointer;
     transition: background-color 0.3s;
     text-align: center;
+    padding: ${Spacing.normal};
 
     &:hover {
       background-color: ${secondaryLightColor};
