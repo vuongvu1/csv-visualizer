@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Pagination, { PageSize } from "../Pagination";
 import Text, { TextType } from "../Text";
+import SearchBar from "../SearchBar";
 import SC from "./styles";
 import Table from "./Table";
 
@@ -50,6 +51,7 @@ const DataTable: React.FC<Props> = ({ data }) => {
       )}
       {shouldShowTable && (
         <>
+          <SearchBar onSearch={console.log} />
           <Table
             headerRow={headerRow}
             showingRows={showingRows}

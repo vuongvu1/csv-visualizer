@@ -14,6 +14,10 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  textarea:focus, input:focus {
+    outline: none;
+  }
+
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
