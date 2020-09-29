@@ -5,6 +5,7 @@ import {
   boxShadowColor,
   neutralColor,
   secondaryLightColor,
+  loadingOverlayColor,
 } from "configs/colors";
 
 export default {
@@ -18,12 +19,16 @@ export default {
     box-shadow: 0px 1px 0px ${boxShadowColor};
     border-radius: 12px;
   `,
-  Table: styled.table`
-    display: block;
-    margin: ${Spacing.normal} 0;
-    border-collapse: collapse;
+  TableContainer: styled.div`
     width: 100%;
     max-width: 552px;
+    position: relative;
+    margin: ${Spacing.normal} 0;
+  `,
+  Table: styled.table`
+    display: block;
+    border-collapse: collapse;
+    width: 100%;
     overflow-x: auto;
     white-space: nowrap;
   `,
@@ -42,5 +47,16 @@ export default {
     &:nth-child(even) {
       background-color: ${secondaryLightColor};
     }
+  `,
+  LoadingOverlay: styled.div`
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: ${loadingOverlayColor};
+    display: flex;
+    justify-content: center;
+    align-items: center;
   `,
 };

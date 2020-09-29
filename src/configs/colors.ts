@@ -8,3 +8,4 @@ export const neutralColor = "#EFEFEF";
 export const neutralDarkColor = "#707070";
 
 export const boxShadowColor = "rgba(165, 165, 168, 0.2)";
+export const loadingOverlayColor = "rgba(165, 165, 168, 0.2)";
