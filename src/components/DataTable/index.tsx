@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Pagination, { PageSize } from "../Pagination";
-import Text, { TextType } from "../Text";
 import SearchBar from "../SearchBar";
 import { isRowDataMatchKeyword } from "utils";
 import SC from "./styles";
@@ -69,9 +68,7 @@ const DataTable: React.FC<Props> = ({ data }) => {
 
   return (
     <SC.Container>
-      {!shouldShowTable && (
-        <Text type={TextType.BODY}>No data to display.</Text>
-      )}
+      {!shouldShowTable && "No data to display."}
       {shouldShowTable && (
         <>
           <SearchBar onSearch={handleSearchTable} />
@@ -80,13 +77,15 @@ const DataTable: React.FC<Props> = ({ data }) => {
             showingRows={showingRows}
             loading={loading}
           />
-          <Pagination
-            total={totalPages}
-            current={currentPage}
-            onChangePage={(_, nextPage) => setCurrentPage(nextPage)}
-            pageSize={pageSize}
-            onChangePageSize={setPageSize}
-          />
+          {totalPages > 0 && (
+            <Pagination
+              total={totalPages}
+              current={currentPage}
+              onChangePage={(_, nextPage) => setCurrentPage(nextPage)}
+              pageSize={pageSize}
+              onChangePageSize={setPageSize}
+            />
+          )}
         </>
       )}
     </SC.Container>

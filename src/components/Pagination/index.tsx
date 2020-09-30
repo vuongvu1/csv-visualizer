@@ -28,8 +28,21 @@ const Pagination: React.FC<Props> = ({
 }) => {
   const isFirst = current === 1;
   const isLast = current === total;
-  const firstPageNum = isFirst ? current : isLast ? current - 2 : current - 1;
-  const secondPageNum = isFirst ? 2 : isLast ? total - 1 : current;
+
+  /**
+   * `firstPageNum`, `secondPageNum` and `lastPageNum` are 3 values shown in the
+   * pagination, the logic here is a bit tricky when the total pages is 2
+   */
+  const firstPageNum = isFirst
+    ? current
+    : isLast && total !== 2
+    ? current - 2
+    : current - 1;
+  const secondPageNum = isFirst
+    ? 2
+    : isLast && total !== 2
+    ? total - 1
+    : current;
   const lastPageNum = isFirst ? 3 : isLast ? total : current + 1;
 
   const handleClickOnPage = useCallback(
@@ -56,18 +69,28 @@ const Pagination: React.FC<Props> = ({
         >
           Prev
         </SC.Button>
-        <SC.Button active={isFirst} onClick={handleClickOnPage(firstPageNum)}>
+        <SC.Button
+          active={current === firstPageNum}
+          onClick={handleClickOnPage(firstPageNum)}
+        >
           {firstPageNum}
         </SC.Button>
-        <SC.Button
-          active={!isFirst && !isLast}
-          onClick={handleClickOnPage(secondPageNum)}
-        >
-          {secondPageNum}
-        </SC.Button>
-        <SC.Button active={isLast} onClick={handleClickOnPage(lastPageNum)}>
-          {lastPageNum}
-        </SC.Button>
+        {total > 1 && (
+          <SC.Button
+            active={current === secondPageNum}
+            onClick={handleClickOnPage(secondPageNum)}
+          >
+            {secondPageNum}
+          </SC.Button>
+        )}
+        {total > 2 && (
+          <SC.Button
+            active={current === lastPageNum}
+            onClick={handleClickOnPage(lastPageNum)}
+          >
+            {lastPageNum}
+          </SC.Button>
+        )}
         <SC.Button
           isFunctionKey
           disabled={isLast}

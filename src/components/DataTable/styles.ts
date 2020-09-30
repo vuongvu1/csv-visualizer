@@ -3,7 +3,7 @@ import { Spacing } from "configs/styles";
 import {
   whiteColor,
   boxShadowColor,
-  neutralColor,
+  neutralDarkColor,
   secondaryLightColor,
   loadingOverlayColor,
 } from "configs/colors";
@@ -33,12 +33,12 @@ export default {
     white-space: nowrap;
   `,
   Th: styled.th`
-    border: 1px solid ${neutralColor};
+    border: 1px solid ${neutralDarkColor};
     text-align: left;
     padding: ${Spacing.small};
   `,
   Td: styled.td`
-    border: 1px solid ${neutralColor};
+    border: 1px solid ${neutralDarkColor};
     text-align: left;
     padding: ${Spacing.small};
     height: 36px;
