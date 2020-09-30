@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import SC from "./styles";
 import { Spinner, Check as CheckIcon } from "assets/icons";
-import { Text, TextType } from "components";
 
 interface Props {
   loading?: boolean;
@@ -26,18 +25,16 @@ const UploadBox: React.FC<Props> = ({ onChange, loading }) => {
         <SC.UploadedFile>
           <SC.IconAndLabel>
             <SC.FileIcon />
-            <Text type={TextType.BODY}>
-              {fileData.name} ({fileData.size})
-            </Text>
+            {fileData.name} ({fileData.size})
           </SC.IconAndLabel>
           {loading ? <Spinner /> : <CheckIcon />}
         </SC.UploadedFile>
       )}
-      <SC.Label htmlFor="file-id">
+      <SC.UploadLabel htmlFor="file-id">
         Click to upload
         <br />
         (accept only .csv file)
-      </SC.Label>
+      </SC.UploadLabel>
       <SC.FileInput
         id="file-id"
         type="file"

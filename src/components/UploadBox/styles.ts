@@ -29,7 +29,7 @@ export default {
   FileInput: styled.input`
     display: none;
   `,
-  Label: styled.label`
+  UploadLabel: styled.label`
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -54,9 +54,16 @@ export default {
   IconAndLabel: styled.div`
     display: flex;
     align-items: center;
+    margin-right: ${Spacing.small};
     margin-bottom: ${Spacing.normal};
+    overflow: hidden;
+
+    @media (max-width: ${ScreenWidth.medium}) {
+      max-width: unset;
+    }
   `,
   FileIcon: styled(DocumentIcon)`
+    width: 24px;
     margin-right: ${Spacing.small};
   `,
 };

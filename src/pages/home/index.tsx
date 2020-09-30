@@ -20,7 +20,7 @@ const Home = () => {
   }, []);
 
   return (
-    <Layout title="CSV Uploader">
+    <Layout title="CSV Visualizer">
       <UploadBox onChange={handleUploadFile} loading={loading} />
       <DataTable data={csvData} />
     </Layout>

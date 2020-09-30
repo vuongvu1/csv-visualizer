@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Spacing } from "configs/styles";
+import { Spacing, ScreenWidth } from "configs/styles";
 import {
   whiteColor,
   boxShadowColor,
@@ -24,6 +24,10 @@ export default {
     max-width: 552px;
     position: relative;
     margin: ${Spacing.normal} 0;
+
+    @media (max-width: ${ScreenWidth.medium}) {
+      max-width: unset;
+    }
   `,
   Table: styled.table`
     display: block;

@@ -2,8 +2,6 @@ import styled from "styled-components";
 import { neutralColor } from "configs/colors";
 import { ScreenWidth } from "configs/styles";
 
-const HEADER_HEIGHT = "100px";
-
 export default {
   Container: styled.div`
     width: 100%;
@@ -13,7 +11,7 @@ export default {
   `,
   Header: styled.div`
     width: 100%;
-    height: ${HEADER_HEIGHT};
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;

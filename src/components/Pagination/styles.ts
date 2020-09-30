@@ -5,7 +5,7 @@ import {
   whiteColor,
   primaryColor,
 } from "configs/colors";
-import { Spacing } from "configs/styles";
+import { Spacing, ScreenWidth } from "configs/styles";
 
 interface ButtonProps {
   isFunctionKey?: boolean;
@@ -19,6 +19,16 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+
+    @media (max-width: ${ScreenWidth.small}) {
+      justify-content: center;
+      > * {
+        &:first-child {
+          margin-bottom: ${Spacing.small};
+        }
+      }
+    }
   `,
   Button: styled.button<ButtonProps>`
     padding: ${Spacing.small};
