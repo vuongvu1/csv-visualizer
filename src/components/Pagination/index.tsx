@@ -84,7 +84,7 @@ const Pagination: React.FC<Props> = ({
         </SC.Button>
       </div>
       <div>
-        Page size
+        <strong>Page size</strong>
         {[PageSize.SMALL, PageSize.MEDIUM, PageSize.LARGE].map((size) => (
           <SC.Button
             key={size}

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import Pagination, { PageSize } from "../Pagination";
 import Text, { TextType } from "../Text";
 import SearchBar from "../SearchBar";
-import { isTextMatch } from "utils";
+import { isRowDataMatchKeyword } from "utils";
 import SC from "./styles";
 import Table from "./Table";
 
@@ -54,7 +54,9 @@ const DataTable: React.FC<Props> = ({ data }) => {
 
       if (keywords) {
         setDataRows(
-          originalDataRows.filter((row) => isTextMatch(row[2], keywords)) // column 3 is description text
+          originalDataRows.filter((rowData) =>
+            isRowDataMatchKeyword(rowData, keywords)
+          )
         );
       } else {
         setDataRows(originalDataRows);

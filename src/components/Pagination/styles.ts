@@ -1,5 +1,10 @@
 import styled, { css } from "styled-components";
-import { neutralColor, whiteColor, primaryColor } from "configs/colors";
+import {
+  neutralColor,
+  neutralDarkColor,
+  whiteColor,
+  primaryColor,
+} from "configs/colors";
 import { Spacing } from "configs/styles";
 
 interface ButtonProps {
@@ -17,7 +22,7 @@ export default {
   `,
   Button: styled.button<ButtonProps>`
     padding: ${Spacing.small};
-    border: 1px solid ${neutralColor};
+    border: 1px solid ${neutralDarkColor};
     background-color: ${whiteColor};
     min-width: 34px;
     height: 34px;
