@@ -29,11 +29,13 @@ exports[`SearchBar should match snapshot 1`] = `
   >
     <input
       class="c1"
+      data-testid="searchInputId"
       placeholder="Search..."
       value=""
     />
     <svg
       class="c2"
+      data-testid="searchIconId"
       height="1em"
       viewBox="0 0 512.005 512.005"
       width="1em"

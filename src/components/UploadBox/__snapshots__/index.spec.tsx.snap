@@ -79,6 +79,7 @@ exports[`UploadBox should match snapshot 1`] = `
     <input
       accept=".csv"
       class="c2"
+      data-testid="fileId"
       id="file-id"
       type="file"
     />

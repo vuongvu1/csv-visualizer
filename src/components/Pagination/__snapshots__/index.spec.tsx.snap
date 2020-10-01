@@ -77,6 +77,27 @@ exports[`Pagination should match snapshot 1`] = `
   background-color: #EFEFEF;
 }
 
+.c5 {
+  padding: 6px;
+  border: 1px solid #707070;
+  background-color: #FFFFFF;
+  min-width: 34px;
+  height: 34px;
+  margin-left: 6px;
+  height: 28px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: #3F7EF0;
+}
+
+.c5:hover {
+  background-color: #EFEFEF;
+}
+
+.c5:hover {
+  background-color: #3F7EF0;
+}
+
 @media (max-width:480px) {
   .c0 {
     -webkit-box-pack: center;
@@ -97,6 +118,7 @@ exports[`Pagination should match snapshot 1`] = `
     <div>
       <button
         class="c1"
+        data-testid="firstBtnId"
       >
         First
       </button>
@@ -137,16 +159,19 @@ exports[`Pagination should match snapshot 1`] = `
       </strong>
       <button
         class="c4"
+        data-testid="pageSize10BtnId"
       >
         10
       </button>
       <button
-        class="c4"
+        class="c5"
+        data-testid="pageSize15BtnId"
       >
         15
       </button>
       <button
         class="c4"
+        data-testid="pageSize20BtnId"
       >
         20
       </button>
@@ -154,3 +179,7 @@ exports[`Pagination should match snapshot 1`] = `
   </div>
 </div>
 `;
+
+exports[`Pagination should trigger onChangePage handler 1`] = `[MockFunction]`;
+
+exports[`Pagination should trigger onChangePageSize handler 1`] = `[MockFunction]`;

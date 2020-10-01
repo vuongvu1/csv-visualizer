@@ -187,6 +187,7 @@ exports[`Home should match snapshot 1`] = `
           <input
             accept=".csv"
             class="c7"
+            data-testid="fileId"
             id="file-id"
             type="file"
           />

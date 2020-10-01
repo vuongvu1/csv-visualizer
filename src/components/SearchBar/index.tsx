@@ -30,12 +30,16 @@ const SearchBar: React.FC<Props> = ({ onSearch }) => {
   return (
     <SC.Container>
       <SC.SearchInput
+        data-testid="searchInputId"
         placeholder="Search..."
         onChange={(e) => setText(e.target.value)}
         onKeyDown={handleKeyDown}
         value={text}
       />
-      <SC.Search onClick={() => searchWithDebounce(text)} />
+      <SC.Search
+        onClick={() => searchWithDebounce(text)}
+        data-testid="searchIconId"
+      />
     </SC.Container>
   );
 };

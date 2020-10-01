@@ -36,6 +36,7 @@ const UploadBox: React.FC<Props> = ({ onChange, loading }) => {
         (accept only .csv file)
       </SC.UploadLabel>
       <SC.FileInput
+        data-testid="fileId"
         id="file-id"
         type="file"
         accept=".csv"

@@ -56,6 +56,7 @@ const Pagination: React.FC<Props> = ({
     <SC.Container>
       <div>
         <SC.Button
+          data-testid="firstBtnId"
           isFunctionKey
           disabled={isFirst}
           onClick={handleClickOnPage(1)}
@@ -110,6 +111,7 @@ const Pagination: React.FC<Props> = ({
         <strong>Page size</strong>
         {[PageSize.SMALL, PageSize.MEDIUM, PageSize.LARGE].map((size) => (
           <SC.Button
+            data-testid={`pageSize${size}BtnId`}
             key={size}
             active={pageSize === size}
             isPageSizeKey

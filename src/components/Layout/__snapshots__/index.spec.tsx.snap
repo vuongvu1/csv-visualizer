@@ -82,14 +82,18 @@ exports[`Layout should match snapshot 1`] = `
       <h1
         class="c2"
         type="h1"
-      />
+      >
+        Page Title
+      </h1>
     </div>
     <div
       class="c3"
     >
       <div
         class="c4"
-      />
+      >
+        Children
+      </div>
     </div>
   </div>
 </div>
