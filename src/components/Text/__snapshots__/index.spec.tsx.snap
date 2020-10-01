@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text should match snapshot 1`] = `
+.c0 {
+  color: #EFEFEF;
+  font-weight: normal;
+  font-size: 16px;
+  color: #3F7EF0;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+<div>
+  <h1
+    class="c0"
+    type="h1"
+  />
+</div>
+`;
+
+exports[`Text should match snapshot 2`] = `
+.c0 {
+  color: #EFEFEF;
+  font-weight: normal;
+  font-size: 16px;
+  color: #63AEF7;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+<div>
+  <h2
+    class="c0"
+    type="h2"
+  />
+</div>
+`;
+
+exports[`Text should match snapshot 3`] = `
+.c0 {
+  color: #EFEFEF;
+  font-weight: normal;
+  font-size: 16px;
+  margin: 0;
+  color: #000000;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+<div>
+  <p
+    class="c0"
+    type="p"
+  />
+</div>
+`;

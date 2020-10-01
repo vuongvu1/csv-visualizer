@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Home page renders learn react link 1`] = `
-<div>
-  <div>
-    This is home page
-  </div>
-</div>
-`;
