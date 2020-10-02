@@ -18,7 +18,6 @@ interface Props {
   onChangePageSize?: (page: number) => void;
 }
 
-// TODO: Improve this component to support page total less than 3
 const Pagination: React.FC<Props> = ({
   total,
   current,
