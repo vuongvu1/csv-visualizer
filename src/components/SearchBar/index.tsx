@@ -13,7 +13,7 @@ const SearchBar: React.FC<Props> = ({ onSearch }) => {
     debounce((keywords: string) => {
       onSearch?.(keywords);
     }, 300),
-    []
+    [onSearch]
   );
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
