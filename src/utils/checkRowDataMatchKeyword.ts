@@ -1,9 +1,12 @@
 const cleanString = (str: string) => str.trim().toLowerCase();
 
-const isRowDataMatchKeyword = (rowData: string[], keywords: string) => {
+const checkRowDataMatchKeyword = (
+  rowData: string[],
+  keywords: string
+): boolean => {
   return rowData.some((cellData) =>
     cleanString(cellData).includes(cleanString(keywords))
   );
 };
 
-export default isRowDataMatchKeyword;
+export default checkRowDataMatchKeyword;

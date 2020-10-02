@@ -1,2 +1,2 @@
 export { default as debounce } from "utils/debounce";
-export { default as isRowDataMatchKeyword } from "utils/isRowDataMatchKeyword";
+export { default as checkRowDataMatchKeyword } from "utils/checkRowDataMatchKeyword";
